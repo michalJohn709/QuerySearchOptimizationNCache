@@ -20,11 +20,10 @@ namespace SQLQuerySearchOptimization
             InitializeCache();
 
 
-            //Start StopWatch with Only Keys
+            //Start StopWatch with Only Keys 1st attempt
             //1st Run
             var timer = new Stopwatch();
             timer.Start();
-
 
             //Perform Operation
             GetKeysOnly();
@@ -37,8 +36,7 @@ namespace SQLQuerySearchOptimization
 
 
 
-
-            //Start StopWatch with Only Keys
+            //Start StopWatch with Only Keys 2nd attempt
             //2nd Run
             var timer2 = new Stopwatch();
             timer.Start();
@@ -52,7 +50,10 @@ namespace SQLQuerySearchOptimization
             Console.WriteLine(timeFinal2 + "\n");
 
 
-            //Start StopWatch with Only Keys
+
+
+
+            //Start StopWatch with Only Keys 3rd attempt
             //3rd Run
             var timer3 = new Stopwatch();
             timer.Start();
@@ -66,7 +67,9 @@ namespace SQLQuerySearchOptimization
             Console.WriteLine(timeFinal3 + "\n");
 
 
-            //Start StopWatch with Keys and Data
+
+
+            //Start StopWatch with Keys and Data 1st attempt
             //1st Run
             var timer1 = new Stopwatch();
             timer1.Start();
@@ -79,7 +82,10 @@ namespace SQLQuerySearchOptimization
             string timeFinal1 = "Time taken With Data & Keys from Cluster Cache 1st attempt: " + timeTaken1.ToString();
             Console.WriteLine(timeFinal1 + "\n");
 
-            //Start StopWatch with Keys and Data
+
+
+
+            //Start StopWatch with Keys and Data 2nd attempt
             //2nd Run
             var timer2nd = new Stopwatch();
             timer2nd.Start();
@@ -99,7 +105,7 @@ namespace SQLQuerySearchOptimization
 
         }
 
-        public static void InitializeCache()
+        private static void InitializeCache()
         {
             string cache = "getKeysCache"; //ConfigurationManager.AppSettings["CacheId"];
 
@@ -163,6 +169,7 @@ namespace SQLQuerySearchOptimization
                     }
 
                 }
+                Console.WriteLine("\nFetch Item Count: " + productsList.Count);
             }
             catch (OperationFailedException ex)
             {
@@ -219,6 +226,7 @@ namespace SQLQuerySearchOptimization
 
                     }
                 }
+                Console.WriteLine("\nFetch Count: " + result.Count);
 
             }
             catch (OperationFailedException ex)

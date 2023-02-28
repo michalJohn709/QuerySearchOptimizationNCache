@@ -1,0 +1,15 @@
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\bin\Debug\net6.0\SampleData.exe
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\bin\Debug\net6.0\SampleData.deps.json
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\bin\Debug\net6.0\SampleData.runtimeconfig.json
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\bin\Debug\net6.0\SampleData.dll
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\bin\Debug\net6.0\SampleData.pdb
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.csproj.AssemblyReference.cache
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.AssemblyInfoInputs.cache
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.AssemblyInfo.cs
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.csproj.CoreCompileInputs.cache
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.dll
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\refint\SampleData.dll
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.pdb
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\SampleData.genruntimeconfig.cache
+C:\Users\michal_john\Documents\GitHub\SQLQuerySearchOptimization\SampleData\obj\Debug\net6.0\ref\SampleData.dll
