@@ -39,12 +39,12 @@ namespace SQLQuerySearchOptimization
             //Start StopWatch with Only Keys 2nd attempt
             //2nd Run
             var timer2 = new Stopwatch();
-            timer.Start();
+            timer2.Start();
 
             //Perform Operation
             GetKeysOnly();
 
-            timer.Stop();
+            timer2.Stop();
             TimeSpan timeTaken2 = timer2.Elapsed;
             string timeFinal2 = "Time taken With Only Keys Fetch 2nd attempt:" + timeTaken2.ToString();
             Console.WriteLine(timeFinal2 + "\n");
@@ -56,12 +56,12 @@ namespace SQLQuerySearchOptimization
             //Start StopWatch with Only Keys 3rd attempt
             //3rd Run
             var timer3 = new Stopwatch();
-            timer.Start();
+            timer3.Start();
 
             //Perform Operation
             GetKeysOnly();
 
-            timer.Stop();
+            timer3.Stop();
             TimeSpan timeTaken3 = timer3.Elapsed;
             string timeFinal3 = "Time taken With Only Keys Fetch 3rd attempt:" + timeTaken3.ToString();
             Console.WriteLine(timeFinal3 + "\n");
@@ -93,7 +93,7 @@ namespace SQLQuerySearchOptimization
             //Perform Operation
             GetKeysAndData();
 
-            timer1.Stop();
+            timer2nd.Stop();
             TimeSpan timeTaken2nd = timer2nd.Elapsed;
             string timeFinal2nd = "Time taken With Data & Keys from Cluster Cache 2nd attempt: " + timeTaken2nd.ToString();
             Console.WriteLine(timeFinal2nd);
