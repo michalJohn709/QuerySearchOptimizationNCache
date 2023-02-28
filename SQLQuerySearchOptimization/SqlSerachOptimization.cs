@@ -14,7 +14,7 @@ namespace SQLQuerySearchOptimization
     {
         private static ICache _cache;
 
-        public static void Run()
+        public static void TestRun()
         {
             //Initialize Cache.
             InitializeCache();
@@ -46,7 +46,7 @@ namespace SQLQuerySearchOptimization
 
             timer2.Stop();
             TimeSpan timeTaken2 = timer2.Elapsed;
-            string timeFinal2 = "Time taken With Only Keys Fetch 2nd attempt:" + timeTaken2.ToString();
+            string timeFinal2 = "Time taken With Only Keys Fetch 2nd attempt: " + timeTaken2.ToString();
             Console.WriteLine(timeFinal2 + "\n");
 
 
@@ -63,7 +63,7 @@ namespace SQLQuerySearchOptimization
 
             timer3.Stop();
             TimeSpan timeTaken3 = timer3.Elapsed;
-            string timeFinal3 = "Time taken With Only Keys Fetch 3rd attempt:" + timeTaken3.ToString();
+            string timeFinal3 = "Time taken With Only Keys Fetch 3rd attempt: " + timeTaken3.ToString();
             Console.WriteLine(timeFinal3 + "\n");
 
 
@@ -154,22 +154,9 @@ namespace SQLQuerySearchOptimization
                 }
 
                 //Initialize Dictionary for Key-Value pairs of Query.
-                IDictionary<string, Product> productsList = new Dictionary<string, Product>();
+                IDictionary<string, Product> productsList = GetDataInChunk(keys,5000);
+         
 
-                //Loop to get Data in chunk of 5000 from keys List.
-                for (int i = 0; i < keys.Count; i += 5000)
-                {
-                    //Get Data from Cahche using GetBulk API of cache.
-                    IDictionary<string, Product> products = _cache.GetBulk<Product>(keys.GetRange(i, Math.Min(5000, keys.Count - i)));
-
-                    foreach (var product in products)
-                    {
-                        //Populate key-value Dictionary with Data
-                        productsList.Add(product);
-                    }
-
-                }
-                Console.WriteLine("\nFetch Item Count: " + productsList.Count);
             }
             catch (OperationFailedException ex)
             {
@@ -190,6 +177,32 @@ namespace SQLQuerySearchOptimization
                 // Any generic exception like ArgumentException, ArgumentNullException
             }
 
+        }
+
+
+        private static IDictionary<string, Product> GetDataInChunk(List<string> keys,int chunkSize)
+        {
+            //Initialize Dictionary for Key-Value pairs of Query.
+            IDictionary<string, Product> productsList = new Dictionary<string, Product>();
+
+
+            //Loop to get Data in chunk of 5000 from keys List.
+            for (int i = 0; i < keys.Count; i += chunkSize)
+            {
+                //Get Data from Cahche using GetBulk API of cache.
+                IDictionary<string, Product> products = _cache.GetBulk<Product>(keys.GetRange(i, Math.Min(chunkSize, keys.Count - i)));
+
+                foreach (var product in products)
+                {
+                    //Populate key-value Dictionary with Data
+                    productsList.Add(product);
+                }
+
+            }
+            Console.WriteLine("\nFetch Item Count: " + productsList.Count);
+
+
+            return productsList;
         }
 
         private static void GetKeysAndData()
@@ -248,5 +261,8 @@ namespace SQLQuerySearchOptimization
                 // Any generic exception like ArgumentException, ArgumentNullException
             }
         }
+
+
+
     }
 }
