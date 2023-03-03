@@ -12,10 +12,10 @@ namespace SQLQuerySearchOptimization
 {
     public class SqlSerachOptimization
     {
-        private static ICache _cache;
+        private  ICache _cache;
 
         //"SELECT $Value$ FROM SampleData.Product WHERE UnitPrice > ?"
-        private static IEnumerable<Product>  SearchProducts(string sql)
+        private IEnumerable<Product>  SearchProducts(string sql)
         {
             // Use QueryCommand for query execution
             QueryCommand queryCommand = new QueryCommand(sql);
@@ -48,7 +48,7 @@ namespace SQLQuerySearchOptimization
 
 
         //this method performs better only if you are using client cache and have most of the data available in client cache.
-        private static IEnumerable<Product> SearchProductsOptimized(string sql)
+        private IEnumerable<Product> SearchProductsOptimized(string sql)
         {
             // Use QueryCommand for query execution
             QueryCommand queryCommand = new QueryCommand(sql);
@@ -80,7 +80,7 @@ namespace SQLQuerySearchOptimization
 
 
         //this method performs better only if you are using client cache and have most of the data available in client cache.
-        private static  IEnumerable<Product> SearchProductsOptimizedMethod2(string sql)
+        private IEnumerable<Product> SearchProductsOptimizedMethod2(string sql)
         {
             // Use QueryCommand for query execution
             QueryCommand queryCommand = new QueryCommand(sql);
@@ -125,7 +125,7 @@ namespace SQLQuerySearchOptimization
 
 
         //GetChunked List
-        private static List<List<string>> GetChunkedList(List<string> keys, int size)
+        private  List<List<string>> GetChunkedList(List<string> keys, int size)
         {
             return keys
             .Select((x, i) => new { index = i, value = x })
@@ -135,7 +135,7 @@ namespace SQLQuerySearchOptimization
         }
 
 
-        private static void InitializeCache()
+        private  void InitializeCache()
         {
             string cache = "getKeysCache"; //"OutProcCluser";//////  //ConfigurationManager.AppSettings["CacheId"];
 
@@ -151,7 +151,7 @@ namespace SQLQuerySearchOptimization
         }
 
 
-        public static void TestRun()
+        public  void TestRun()
         {
             //Initialize Cache.
             InitializeCache();

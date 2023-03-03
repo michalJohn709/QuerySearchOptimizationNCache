@@ -8,7 +8,9 @@ namespace SQLQuerySearchOptimization
             try
             {
 
-                SqlSerachOptimization.TestRun();
+                SqlSerachOptimization sqlSerach = new SqlSerachOptimization();
+                sqlSerach.TestRun();
+
                 Console.ReadKey();
 
             }
